@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <style>
+        h1 {color: red;}
+      .square {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      #score {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body onload="init();">
+
+    <h1 style="text-align:center"><a href="https://yaboi870.github.io/Ultraclip/">Aim game exit</a></h1>
+    <div class="square" id="square"></div>
+    <div id="score">Score: 0</div>
+    <script>
+      function init() {
+        var square = document.getElementById("square");
+        var score = 0;
+        var scoreElement = document.getElementById("score");
+        square.addEventListener("click", function() {
+          square.style.display = "none";
+          score++;
+          scoreElement.innerHTML = "Score: " + score;
+          setTimeout(function() {
+            var randomX = Math.floor(Math.random() * window.innerWidth);
+            var randomY = Math.floor(Math.random() * window.innerHeight);
+            square.style.left = randomX + "px";
+            square.style.top = randomY + "px";
+            square.style.display = "block";
+          }, 1000);
+        });
+      }
+    </script>
+  </body>
+</html>
